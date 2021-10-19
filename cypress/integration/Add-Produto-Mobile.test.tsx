@@ -13,6 +13,7 @@ it('Goes to offpremium site and tries to login - Mobile', () => {
     return false
   })
   cy.viewport(375,667)
+  // cy.clearCookies()
   cy.log("Visitando a Página - Mobile")
   cy.visit('https://www.offpremium.com.br/?uam=true&mobile=2');
   cy.get('.newsletter__popup > .sc-jrsJWt > .sc-crzoAE > .sc-dIsUp').click()
@@ -24,4 +25,5 @@ it('Goes to offpremium site and tries to login - Mobile', () => {
   cy.get('.product__fab--button > .product__add-to-cart').click()
   cy.get(`.interactive-modal__sizes > .slick-list > .slick-track > [data-slick-index="${randomSize}"]`).click()
   cy.get('.interactive-modal__bottom--cart-btn').click()
+  cy.get('.sc-efHYUO').click()
 });
