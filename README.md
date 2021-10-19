@@ -44,3 +44,19 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+---
+
+### Testing with Cypress
+
+You can use cypress in this repo using the following commands:
+
+#### yarn cypress run-ct (terminal)
+
+---
+
+#### yarn cypress open-ct (browser)
+
+---
+
+![1.png](assets/img/1.png)
