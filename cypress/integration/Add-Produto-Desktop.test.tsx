@@ -1,8 +1,11 @@
 import { mount } from '@cypress/react';
+import Chance from 'chance';
 
-let randomBrandColumn = Math.floor(Math.random() * 4)+1;
-let randomBrand = Math.floor(Math.random() * 4)+1;
-let randomProduct = Math.floor(Math.random() * 7)+1;
+const chance = new Chance();
+
+let randomBrandColumn = chance.natural({min:1, max:5});
+let randomBrand = chance.natural({min:1, max:5});
+let randomProduct = chance.natural({min:1, max:7});
 it('Get a random product and add it to the cart - Desktop', () => {
   cy.log("Iniciando simulação de Adição ao Carrinho")
   Cypress.on('uncaught:exception', (err, runnable) => {
@@ -17,6 +20,7 @@ it('Get a random product and add it to the cart - Desktop', () => {
   cy.get(`.sc-bUQyIj > :nth-child(${randomBrandColumn}) > :nth-child(${randomBrand})`).click()
   cy.log("Visitando a Página de Produto - Desktop")
   cy.get(`.prateleira > ul > :nth-child(${randomProduct})`).click()
-  cy.get('.product__add-to-cart')
+  cy.scrollTo(0, -500)
+  cy.get('.product__add-to-cart').click()
 
 });
