@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('login', (email, password) => { 
+
+    cy.visit('/');
+    cy.get('.newsletter__popup > .sc-bdnxRM > .sc-hKFxyN > .sc-eCApnc').click()
+    cy.log("Acessando a página de Login - Desktop")
+    cy.get('.sc-dlMDgC').click()
+
+ })

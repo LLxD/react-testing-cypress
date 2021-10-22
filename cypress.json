@@ -3,5 +3,7 @@
       "testFiles": "**/*.test.{js,ts,jsx,tsx}",
       "componentFolder": "src"
     },
-      "baseUrl": "https://offpremium.com.br"
+      "baseUrl": "https://offpremium.com.br",
+      "viewportHeight":667,
+      "viewportWidth":365
   }
