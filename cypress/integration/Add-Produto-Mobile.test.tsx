@@ -14,6 +14,7 @@ sizes.forEach((size)=>{
   describe(`Testando o fluxo de adicionar produtos no carrinho para ${size}`,
   ()=>{  
     it(`Tries to add a product to the cart in ${size} `, () => {
+      //@ts-ignore
       cy.viewport(size)
       cy.clearCookies()
       cy.clearLocalStorage()
