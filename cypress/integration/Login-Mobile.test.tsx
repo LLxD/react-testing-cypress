@@ -30,7 +30,7 @@ sizes.forEach((size)=>{
       cy.get('#inputEmail').type(randomMail)
       cy.get('#inputPassword').type(randomPass)
       cy.get('#vtexIdUI-form-classic-login > .modal-footer > #classicLoginBtn').click()
-      cy.get('[ng-show="classicAuthError"]')
+      expect(cy.get('[ng-show="classicAuthError"]')).to.exist
     });
   })
 })
