@@ -6,10 +6,7 @@ const chance = new Chance();
 
 let produtosIniciais = 0;
 let produtosFinais = 0;
-
 let randomBrand = chance.natural({ min: 1, max: 5 });
-let randomProduct = chance.natural({ min: 1, max: 6 });
-let randomSize = chance.natural({ min: 1, max: 3 });
 let randomBrandColumn = chance.natural({ min: 1, max: 5 });
 const sizes = [
   "iphone-8",
