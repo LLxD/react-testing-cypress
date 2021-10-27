@@ -19,6 +19,7 @@ sizes.forEach((size)=>{
         // failing the test in case JS loading fails
         return false
       })
+      //@ts-ignore
       cy.viewport(size)
       cy.log("Visitando a Página - Mobile")
       cy.visit('https://www.offpremium.com.br/?uam=true&mobile=2');

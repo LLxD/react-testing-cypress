@@ -1,0 +1,7 @@
+{
+  "scope":"lojaoffpremium",
+  "locale":"pt-BR",
+  "returnurl:":"https://lojaoffpremium.myvtex.com/",
+  "appStart":"true",
+  "callbackUrl":"https://lojaoffpremium.myvtex.com/api/vtexid/oauth/finish"
+  }

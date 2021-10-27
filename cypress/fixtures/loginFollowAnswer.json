@@ -1,0 +1,11 @@
+{
+    "authStatus": "InvalidEmail",
+    "promptMFA": false,
+    "clientToken": null,
+    "authCookie": null,
+    "accountAuthCookie": null,
+    "expiresIn": 0,
+    "userId": null,
+    "phoneNumber": null,
+    "scope": null
+  }
