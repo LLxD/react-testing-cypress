@@ -5,5 +5,6 @@
     },
       "baseUrl": "https://offpremium.com.br",
       "viewportHeight":667,
-      "viewportWidth":365
+      "viewportWidth":365,
+      "projectId": "thqmpk"
   }
