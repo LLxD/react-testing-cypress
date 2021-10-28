@@ -16,6 +16,10 @@ jobs:
     steps:
       - name: Install Cypress
         run: yarn add cypress --dev
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: run tests
         uses: cypress-io/github-action@v2
         with:
