@@ -29,7 +29,7 @@ sizes.forEach((size) => {
       cy.get(
         `:nth-child(3) > :nth-child(${randomBrand}) > a > .lazy--load`
       ).click();
-      cy.get(`.prateleira > ul > :nth-child(${randomProduct})`).click();
+      cy.get(`.prateleira > ul > :nth-child(${randomProduct})`).first().click();
       cy.window().then((item) => {
         //@ts-ignore
         let data = item.skuJson_0;
