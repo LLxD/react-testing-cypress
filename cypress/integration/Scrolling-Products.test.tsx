@@ -1,5 +1,4 @@
 import { mount } from "@cypress/react";
-import lodash from "lodash";
 import Chance from "chance";
 
 const chance = new Chance();
