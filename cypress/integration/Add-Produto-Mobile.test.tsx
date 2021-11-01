@@ -5,6 +5,8 @@ const chance = new Chance();
 
 let randomBrand = chance.natural({ min: 1, max: 5 });
 let randomProduct = chance.natural({ min: 1, max: 6 });
+let randomCoupon = chance.string({ length: 8 });
+let randomSeller = chance.string({ length: 4 });
 const sizes = ["iphone-8", "iphone-6", "samsung-note9"];
 let clothSize;
 
@@ -43,6 +45,17 @@ sizes.forEach((size) => {
       });
       cy.get("a").contains("Adicionar à sacola").click();
       cy.get(".minicart__handle").click();
+      cy.get(".sc-dkuGKe").click();
+      cy.get(".sc-laZMeE > .sc-lbVvki > .sc-dPaNzc").type(randomCoupon);
+      cy.get(".sc-eJocfa > .sc-lbVvki > .sc-dPaNzc").type(randomSeller);
+      cy.get(".sc-laZMeE > .sc-cTJkRt").click();
+      cy.get(".sc-eJocfa > .sc-cTJkRt").click();
+
+      // cy.intercept(
+      //   "GET",
+      //   "https://www.offpremium.com.br/api/catalog_system/pub/products/search/?fq=productId:212390",
+      //   { fixture: "orderFormNoCoupon.json" }
+      // );
     });
   });
 });
