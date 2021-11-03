@@ -18,7 +18,7 @@ const sizes = [
 sizes.forEach((size) => {
   describe(`Testando o fluxo de scrollar e carregar novos produtos para ${size}`, () => {
     if (size != "macbook-11" && size != "macbook-16") {
-      it(`Tries to scroll and load more products -  ${size} `, () => {
+      it(`Tenta scrollar e verifica se os produtos carregaram -  ${size} `, () => {
         //@ts-ignore
         cy.viewport(size);
         cy.clearCookies();
@@ -40,6 +40,7 @@ sizes.forEach((size) => {
         cy.get(".prateleira > ul > li").then((li) => {
           produtosIniciais = li.length;
         });
+        cy.wait(2000);
         cy.scrollTo(0, 3000, { duration: 5000 });
         cy.get(".prateleira > ul > li").then((li) => {
           produtosFinais = li.length;
@@ -47,7 +48,7 @@ sizes.forEach((size) => {
         });
       });
     } else {
-      it(`Tries to scroll and load more products -  ${size} `, () => {
+      it(`Tenta scrollar e verifica se os produtos carregaram -  ${size} `, () => {
         cy.viewport(size);
         cy.clearCookies();
         cy.clearLocalStorage();
