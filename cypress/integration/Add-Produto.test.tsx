@@ -60,12 +60,8 @@ describe(`Testando o fluxo de adicionar produtos no carrinho para mobile e deskt
         cy.get(".sc-eJocfa > .sc-lbVvki > .sc-dPaNzc").type(randomSeller);
         cy.get(".sc-laZMeE > .sc-cTJkRt").click();
         cy.get(".sc-eJocfa > .sc-cTJkRt").click();
-
-        // cy.intercept(
-        //   "GET",
-        //   "https://www.offpremium.com.br/api/catalog_system/pub/products/search/?fq=productId:212390",
-        //   { fixture: "orderFormNoCoupon.json" }
-        // );
+        expect(cy.get(".sc-laZMeE > .sc-lbVvki > .sc-gGLxEB")).to.exist;
+        expect(cy.get(".sc-eJocfa > .sc-lbVvki > .sc-gGLxEB")).to.exist;
       });
     } else {
       it(`Tenta adicionar produtos ao carrinho em: ${size}`, () => {
@@ -77,6 +73,7 @@ describe(`Testando o fluxo de adicionar produtos no carrinho para mobile e deskt
         });
         cy.viewport(size);
         cy.visit("/");
+        cy.get(".modal-lgpd--btn").click({ force: true });
         cy.get(
           ".newsletter__popup > .sc-bdnxRM > .sc-hKFxyN > .sc-eCApnc"
         ).click();
@@ -86,7 +83,27 @@ describe(`Testando o fluxo de adicionar produtos no carrinho para mobile e deskt
         ).click();
         cy.log("Visitando a Página de Produto - Desktop");
         cy.get(`.prateleira > ul > :nth-child(${randomProduct})`).click();
-        // cy.get('a').contains("Adicionar à Sacola").scrollIntoView().click()
+        // cy.get("a").contains("Adicionar à Sacola").as("addToCart")
+        cy.window().then((item) => {
+          //@ts-ignore
+          let data = item.skuJson_0;
+          data.skus.forEach((produto) => {
+            produto.available ? (clothSize = produto.dimensions.Tamanho) : "";
+          });
+          cy.wrap(clothSize).as("clothSize");
+        });
+        cy.get("@clothSize").then((clothSize) => {
+          cy.get(`.skuespec_Tamanho_opcao_${clothSize}`).click({ force: true });
+        });
+        cy.get("a").contains("Adicionar à Sacola").click({ force: true });
+        cy.get(".minicart__content").should("be.visible", { timeout: 10000 });
+        cy.get(".minicart-vendor").type(randomSeller + "{enter}");
+        cy.get(".minicart-vendor").should("have.class", "js-error");
+        cy.get(".minicart-coupon")
+          .click()
+          .type(randomCoupon + "{enter}");
+        cy.get(".minicart-coupon").should("have.class", "js-error");
+        cy.get("a").contains("Prosseguir").click();
       });
     }
   });
