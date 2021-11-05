@@ -27,6 +27,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           record: true
+          browser: chrome
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # Recommended: pass the GitHub token lets this action correctly
