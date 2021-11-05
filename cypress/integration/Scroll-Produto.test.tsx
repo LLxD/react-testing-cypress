@@ -42,12 +42,11 @@ sizes.forEach((size) => {
           ).click();
           cy.get(".prateleira > ul > li").then((li) => {
             produtosIniciais = li.length;
-          });
-          cy.wait(2000);
-          cy.scrollTo(0, 3000, { duration: 5000 });
-          cy.get(".prateleira > ul > li").then((li) => {
-            produtosFinais = li.length;
-            expect(produtosIniciais).to.be.lessThan(produtosFinais);
+            cy.scrollTo(0, 3000, { duration: 5000 });
+            cy.get(".prateleira > ul > li").then((li) => {
+              produtosFinais = li.length;
+              expect(produtosIniciais).to.be.lessThan(produtosFinais);
+            });
           });
         }
       );
@@ -74,11 +73,11 @@ sizes.forEach((size) => {
           ).click();
           cy.get(".prateleira > ul > li").then((li) => {
             produtosIniciais = li.length;
-          });
-          cy.scrollTo(0, 6000, { duration: 5000 });
-          cy.get(".prateleira > ul > li").then((li) => {
-            produtosFinais = li.length;
-            expect(produtosIniciais).to.be.lessThan(produtosFinais);
+            cy.scrollTo(0, 10000, { duration: 5000 });
+            cy.get(".prateleira > ul > li").then((li) => {
+              produtosFinais = li.length;
+              expect(produtosIniciais).to.be.lessThan(produtosFinais);
+            });
           });
         }
       );
