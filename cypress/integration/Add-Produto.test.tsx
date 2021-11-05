@@ -107,15 +107,15 @@ describe(`Testando o fluxo de adicionar produtos no carrinho para mobile e deskt
           cy.get("a").contains("Adicionar à Sacola").click({ force: true });
           cy.get(".minicart__content").should("be.visible", { timeout: 10000 });
           cy.get(".minicart-vendor").type(randomSeller + "{enter}");
-          cy.get(".minicart-vendor").should("have.class", "js-error", {
-            timeout: 10000,
-          });
+          // cy.get(".minicart-vendor").should("have.class", "js-error", {
+          //   timeout: 10000,
+          // });
           cy.get(".minicart-coupon")
             .click()
             .type(randomCoupon + "{enter}");
-          cy.get(".minicart-coupon").should("have.class", "js-error", {
-            timeout: 10000,
-          });
+          // cy.get(".minicart-coupon").should("have.class", "js-error", {
+          //   timeout: 10000,
+          // });
           cy.get("a").contains("Prosseguir").click();
         }
       );
