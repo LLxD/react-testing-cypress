@@ -52,3 +52,19 @@ Cypress.Commands.add('login', (username, password, mobile) => {
         cy.get('#vtexIdUI-form-classic-login > .modal-footer > #classicLoginBtn').click()
     }
   })
+
+  Cypress.Commands.add('testLoading', (finalPositionMobile,finalPositionDesktop, duration, mobile) => {
+    let produtosFinais = 0;
+    const numeroProdutosMobile = 6;
+    const numeroProdutosDesktop = 24;
+    if(mobile){
+      cy.scrollTo(0, finalPositionMobile, { duration: duration });
+    }
+    else{
+      cy.scrollTo(0, finalPositionDesktop, { duration: duration });
+    }
+    cy.get(".prateleira > ul > li").then((li) => {
+      produtosFinais = li.length;
+      expect(mobile ? numeroProdutosMobile : numeroProdutosDesktop).to.be.lessThan(produtosFinais);
+    });
+  })
