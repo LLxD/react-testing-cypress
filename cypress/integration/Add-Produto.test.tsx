@@ -9,8 +9,8 @@ let randomProduct = chance.natural({ min: 1, max: 6 });
 let randomCoupon = chance.string({ length: 8 });
 let randomSeller = chance.string({ length: 4 });
 const sizes = [
-  "iphone-8",
   "iphone-6",
+  "iphone-8",
   "samsung-note9",
   "macbook-11",
   "macbook-16",

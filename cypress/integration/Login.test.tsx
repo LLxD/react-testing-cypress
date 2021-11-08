@@ -10,8 +10,8 @@ const successfullAccount = "testesoffpremium@gmail.com";
 const successfullPass = "yrb3Lp4v3cvSKH";
 
 const sizes = [
-  "iphone-8",
   "iphone-6",
+  "iphone-8",
   "samsung-note9",
   "macbook-11",
   "macbook-16",
