@@ -7,8 +7,8 @@ on:
     branches:
       - main
   # test site every night
-  schedule:
-    - cron: "0 1 * * *"
+#   schedule:
+#     - cron: "0 1 * * *"
 jobs:
   test:
     name: Install and Run Tests
